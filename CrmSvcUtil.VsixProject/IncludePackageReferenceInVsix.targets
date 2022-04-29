@@ -1,0 +1,26 @@
+﻿<Project>
+  <Target Name="IncludePackageReferenceInVSIX"
+          Inputs="@(PackageReference -> WithMetadataValue('IncludeInVSIX', 'true'))"
+          Outputs="%(PackageReference.Identity)"
+          DependsOnTargets="ResolveNuGetPackageAssets"
+          AfterTargets="ResolveReferences">
+    <PropertyGroup>
+      <IncludeInVSIXPackageId>%(PackageReference.Identity)</IncludeInVSIXPackageId>
+    </PropertyGroup>
+    <ItemGroup>
+      <VSIXSourceItem Include="@(RuntimeCopyLocalItems);@(RuntimeTargetsCopyLocalItems)"
+                      Condition="'%(NuGetPackageId)' == '$(IncludeInVSIXPackageId)'" />
+    </ItemGroup>
+  </Target>
+  <Target Name="IncludeNuGetPackageReferences"
+          Inputs="@(PackageReference -> WithMetadataValue('IncludeInVSIX', 'true'))"
+          Outputs="%(PackageReference.Identity)"
+          AfterTargets="GetVsixSourceItems">
+    <PropertyGroup>
+      <IncludeInVSIXPackageId>%(PackageReference.Identity)</IncludeInVSIXPackageId>
+    </PropertyGroup>
+    <ItemGroup>
+      <VSIXSourceItem Include="@(ReferenceCopyLocalPaths)" Condition="'%(ReferenceCopyLocalPaths.NuGetPackageId)' == '$(IncludeInVSIXPackageId)'" />
+    </ItemGroup>
+  </Target>
+</Project>

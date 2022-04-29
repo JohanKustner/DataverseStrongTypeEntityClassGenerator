@@ -1,0 +1,81 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.32126.317
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CrmSvcUtil", "CrmSvcUtil\CrmSvcUtil.csproj", "{61D6762B-A737-4361-9F12-231199794AAF}"
+EndProject
+Project("{930C7802-8A8C-48F9-8165-68863BCCD9DD}") = "Installer", "Installer\Installer.wixproj", "{8B03F8F3-568F-4465-8F4A-40733F15CEF3}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{7B1469B5-398B-4E5F-A679-B3FD3E90B8E8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CrmSvcUtil.Client", "CrmSvcUtil.Client\CrmSvcUtil.Client.csproj", "{FE6CB7F7-1F2E-44F1-8156-ACB55D8E4369}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CrmSvcUtil.VsixProject", "CrmSvcUtil.VSIXProject\CrmSvcUtil.VsixProject.csproj", "{FC595B40-0187-4DF9-859C-8AA092DE3312}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Debug|x86 = Debug|x86
+		Release|Any CPU = Release|Any CPU
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{61D6762B-A737-4361-9F12-231199794AAF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{61D6762B-A737-4361-9F12-231199794AAF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{61D6762B-A737-4361-9F12-231199794AAF}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{61D6762B-A737-4361-9F12-231199794AAF}.Debug|x86.Build.0 = Debug|Any CPU
+		{61D6762B-A737-4361-9F12-231199794AAF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{61D6762B-A737-4361-9F12-231199794AAF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{61D6762B-A737-4361-9F12-231199794AAF}.Release|x86.ActiveCfg = Release|Any CPU
+		{61D6762B-A737-4361-9F12-231199794AAF}.Release|x86.Build.0 = Release|Any CPU
+		{8B03F8F3-568F-4465-8F4A-40733F15CEF3}.Debug|Any CPU.ActiveCfg = Debug|x86
+		{8B03F8F3-568F-4465-8F4A-40733F15CEF3}.Debug|Any CPU.Build.0 = Debug|x86
+		{8B03F8F3-568F-4465-8F4A-40733F15CEF3}.Debug|x86.ActiveCfg = Debug|x86
+		{8B03F8F3-568F-4465-8F4A-40733F15CEF3}.Debug|x86.Build.0 = Debug|x86
+		{8B03F8F3-568F-4465-8F4A-40733F15CEF3}.Release|Any CPU.ActiveCfg = Release|x86
+		{8B03F8F3-568F-4465-8F4A-40733F15CEF3}.Release|Any CPU.Build.0 = Release|x86
+		{8B03F8F3-568F-4465-8F4A-40733F15CEF3}.Release|x86.ActiveCfg = Release|x86
+		{8B03F8F3-568F-4465-8F4A-40733F15CEF3}.Release|x86.Build.0 = Release|x86
+		{FE6CB7F7-1F2E-44F1-8156-ACB55D8E4369}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FE6CB7F7-1F2E-44F1-8156-ACB55D8E4369}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FE6CB7F7-1F2E-44F1-8156-ACB55D8E4369}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{FE6CB7F7-1F2E-44F1-8156-ACB55D8E4369}.Debug|x86.Build.0 = Debug|Any CPU
+		{FE6CB7F7-1F2E-44F1-8156-ACB55D8E4369}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FE6CB7F7-1F2E-44F1-8156-ACB55D8E4369}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FE6CB7F7-1F2E-44F1-8156-ACB55D8E4369}.Release|x86.ActiveCfg = Release|Any CPU
+		{FE6CB7F7-1F2E-44F1-8156-ACB55D8E4369}.Release|x86.Build.0 = Release|Any CPU
+		{FC595B40-0187-4DF9-859C-8AA092DE3312}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FC595B40-0187-4DF9-859C-8AA092DE3312}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FC595B40-0187-4DF9-859C-8AA092DE3312}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{FC595B40-0187-4DF9-859C-8AA092DE3312}.Debug|x86.Build.0 = Debug|Any CPU
+		{FC595B40-0187-4DF9-859C-8AA092DE3312}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FC595B40-0187-4DF9-859C-8AA092DE3312}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FC595B40-0187-4DF9-859C-8AA092DE3312}.Release|x86.ActiveCfg = Release|Any CPU
+		{FC595B40-0187-4DF9-859C-8AA092DE3312}.Release|x86.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {34BB6EB3-43B5-4FF8-B1A5-6A5508CBA630}
+	EndGlobalSection
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 5
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = https://kustner.visualstudio.com/defaultcollection
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = CrmSvcUtil\\CrmSvcUtil.csproj
+		SccProjectName1 = CrmSvcUtil
+		SccLocalPath1 = CrmSvcUtil
+		SccProjectUniqueName2 = Installer\\Installer.wixproj
+		SccProjectName2 = Installer
+		SccLocalPath2 = Installer
+		SccProjectUniqueName3 = CrmSvcUtil.Client\\CrmSvcUtil.Client.csproj
+		SccProjectName3 = CrmSvcUtil.Client
+		SccLocalPath3 = CrmSvcUtil.Client
+		SccProjectUniqueName4 = CrmSvcUtil.VSIXProject\\CrmSvcUtil.VsixProject.csproj
+		SccProjectName4 = CrmSvcUtil.VSIXProject
+		SccLocalPath4 = CrmSvcUtil.VSIXProject
+	EndGlobalSection
+EndGlobal
