@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<PackageManifest Version="2.0.0" xmlns="http://schemas.microsoft.com/developer/vsx-schema/2011" xmlns:d="http://schemas.microsoft.com/developer/vsx-schema-design/2011">
+    <Metadata>
+        <Identity Id="CrmSvcUtil.VSIXProject.Johan Küstner.4b15840e-d515-4f33-882d-66fe57f67b22" Version="1.16" Language="en-GB" Publisher="Johan Küstner" />
+        <DisplayName>Dataverse Strong Type Entity Class Generator</DisplayName>
+        <Description xml:space="preserve">Generates strongly typed entity classes for Dynamics 365.</Description>
+        <Icon>Resources\DynamicsLogo.ico</Icon>
+        <PreviewImage>Resources\DynamicsLogo.ico</PreviewImage>
+        <Tags>Dynamics 365,Dynamics CRM,CrmSvcUtil,Developer Toolkit</Tags>
+    </Metadata>
+    <Installation>
+        <InstallationTarget Version="[14.0,17.0)" Id="Microsoft.VisualStudio.Community"/>
+    </Installation>
+    <Dependencies>
+    </Dependencies>
+    <Assets>
+        <Asset Type="Microsoft.VisualStudio.VsPackage" d:Source="Project" d:ProjectName="%CurrentProject%" Path="|%CurrentProject%;PkgdefProjectOutputGroup|" />
+        <Asset Type="Microsoft.VisualStudio.Assembly" d:Source="File" Path="CrmSvcUtilFiles\Microsoft.Crm.Sdk.Proxy.dll" AssemblyName="Microsoft.Crm.Sdk.Proxy, Version=9.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" d:VsixSubPath="CrmSvcUtilFiles" />
+        <Asset Type="Microsoft.VisualStudio.Assembly" d:Source="File" Path="CrmSvcUtilFiles\Microsoft.IdentityModel.Clients.ActiveDirectory.dll" AssemblyName="Microsoft.IdentityModel.Clients.ActiveDirectory, Version=3.19.8.16603, Culture=neutral, PublicKeyToken=31bf3856ad364e35" d:VsixSubPath="CrmSvcUtilFiles" />
+        <Asset Type="Microsoft.VisualStudio.Assembly" d:Source="File" Path="CrmSvcUtilFiles\Microsoft.Xrm.Sdk.Deployment.dll" AssemblyName="Microsoft.Xrm.Sdk.Deployment, Version=9.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" d:VsixSubPath="CrmSvcUtilFiles" />
+        <Asset Type="Microsoft.VisualStudio.Assembly" d:Source="File" Path="CrmSvcUtilFiles\Microsoft.Xrm.Sdk.dll" AssemblyName="Microsoft.Xrm.Sdk, Version=9.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" d:VsixSubPath="CrmSvcUtilFiles" />
+        <Asset Type="Microsoft.VisualStudio.Assembly" d:Source="File" Path="CrmSvcUtilFiles\Microsoft.Xrm.Tooling.Connector.dll" AssemblyName="Microsoft.Xrm.Tooling.Connector, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" d:VsixSubPath="CrmSvcUtilFiles" />
+        <Asset Type="Microsoft.VisualStudio.Assembly" d:Source="File" Path="CrmSvcUtilFiles\Microsoft.Xrm.Tooling.CrmConnectControl.dll" AssemblyName="Microsoft.Xrm.Tooling.CrmConnectControl, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" d:VsixSubPath="CrmSvcUtilFiles" />
+        <Asset Type="Microsoft.VisualStudio.Assembly" d:Source="File" Path="CrmSvcUtilFiles\Microsoft.Xrm.Tooling.Ui.Styles.dll" AssemblyName="Microsoft.Xrm.Tooling.Ui.Styles, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" d:VsixSubPath="CrmSvcUtilFiles" />
+        <Asset Type="Microsoft.VisualStudio.Assembly" d:Source="File" Path="CrmSvcUtilFiles\Newtonsoft.Json.dll" AssemblyName="Newtonsoft.Json, Version=11.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed" d:VsixSubPath="CrmSvcUtilFiles" />
+        <Asset Type="Microsoft.VisualStudio.Assembly" d:Source="File" Path="CrmSvcUtilFiles\System.Diagnostics.DiagnosticSource.dll" AssemblyName="System.Diagnostics.DiagnosticSource, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51" d:VsixSubPath="CrmSvcUtilFiles" />
+        <Asset Type="Microsoft.VisualStudio.Assembly" d:Source="File" Path="CrmSvcUtilFiles\System.Text.Json.dll" AssemblyName="System.Text.Json, Version=5.0.0.2, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51" d:VsixSubPath="CrmSvcUtilFiles" />
+        <Asset Type="Microsoft.VisualStudio.Assembly" d:Source="File" Path="CrmSvcUtilFiles\System.ValueTuple.dll" AssemblyName="System.ValueTuple, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51" d:VsixSubPath="CrmSvcUtilFiles" />
+    </Assets>
+    <Prerequisites>
+        <Prerequisite Id="Microsoft.VisualStudio.Component.CoreEditor" Version="[14.0,17.0)" DisplayName="Visual Studio core editor" />
+    </Prerequisites>
+</PackageManifest>
