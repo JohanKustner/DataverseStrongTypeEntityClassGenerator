@@ -1,0 +1,316 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi" xmlns:netfx="http://schemas.microsoft.com/wix/NetFxExtension">
+  <Product Id="AB89CE93-2DB8-421D-B407-E0A4968A4721" Name="Dynamics CRM Developer Toolkit Extender" Language="1033" Version="1.0.0.0" Manufacturer="Kustner Limited" UpgradeCode="843e716c-ee00-4f7b-80c5-d7b1cfd36019">
+    <Package InstallerVersion="200" Compressed="yes" InstallScope="perMachine" InstallPrivileges="elevated" />
+
+    <MajorUpgrade DowngradeErrorMessage="A newer version of [ProductName] is already installed." />
+    <Media Id="1" Cabinet="Cab1.cab" EmbedCab="yes" />
+
+    <UIRef Id="WixUI_Minimal" />
+    <UIRef Id="WixUI_ErrorProgressText"/>
+
+
+    <PropertyRef Id="WIX_IS_NETFRAMEWORK_462_OR_LATER_INSTALLED"/>
+
+    <Condition Message="This application requires .NET Framework 4.6.2. Please install the .NET Framework then run this installer again.">
+      <![CDATA[Installed OR WIX_IS_NETFRAMEWORK_462_OR_LATER_INSTALLED]]>
+    </Condition>
+
+    <Property Id="WIXUI_INSTALLDIR" Value="INSTALLDIR" />
+
+    <Icon Id="CrmDeveloperToolkitExtenderIcon.ico" SourceFile="setup.ico"/>
+    <Property Id="ARPPRODUCTICON" Value="CrmDeveloperToolkitExtenderIcon.ico" />
+
+    <Property Id="MSIUSEREALADMINDETECTION" Value="1" />
+
+    <?if $(var.Platform)=x64 ?>
+    <?define PlatformProgramFilesFolder = "$(env.ProgramFiles(x86))" ?>
+    <?else ?>
+    <?define PlatformProgramFilesFolder = "$(env.ProgramFiles)" ?>
+    <?endif ?>
+
+    <Property Id="CUSTOMACTIVITIESDIR" Value="CustomActivitiesFolder" />
+    <Property Id="BUILDTEMPLATESDIR" Value="BuildProcessTemplatesFolder" />
+
+    <Property Id="VISUALSTUDIO2017DEVENVEXEEXISTS">
+      <DirectorySearch Id="ProgramFilesFolderSearch2017" Path="[ProgramFilesFolder]">
+        <DirectorySearch Id="VisualStudioSearch" Path="Microsoft Visual Studio">
+          <DirectorySearch Id="VisualStudio2017Search" Path="2017">
+            <DirectorySearch Id="EnterpriseSearch" Path="Enterprise">
+              <DirectorySearch Id="VisualStudio2017Common7Search" Path="Common7">
+                <DirectorySearch Id ="VisualStudio2017IDESearch" Path="IDE">
+                  <FileSearch Id="VisualStudio2017DevEnvSearch" Name="devenv.exe"/>
+                </DirectorySearch>
+              </DirectorySearch>
+            </DirectorySearch>
+          </DirectorySearch>
+        </DirectorySearch>
+      </DirectorySearch>
+    </Property>
+
+    <Property Id="VISUALSTUDIO2015DEVENVEXEEXISTS">
+      <DirectorySearch Id="ProgramFilesFolderSearch2015" Path="[ProgramFilesFolder]">
+        <DirectorySearch Id="VisualStudio2015Search" Path="Microsoft Visual Studio 14.0">
+          <DirectorySearch Id="VisualStudio2015Common7Search" Path="Common7">
+            <DirectorySearch Id ="VisualStudio2015IDESearch" Path="IDE">
+              <FileSearch Id="VisualStudio2015DevEnvSearch" Name="devenv.exe"/>
+            </DirectorySearch>
+          </DirectorySearch>
+        </DirectorySearch>
+      </DirectorySearch>
+    </Property>
+
+    <Property Id="VISUALSTUDIO2013DEVENVEXEEXISTS">
+      <DirectorySearch Id="ProgramFilesFolderSearch2013" Path="[ProgramFilesFolder]">
+        <DirectorySearch Id="VisualStudio2013Search" Path="Microsoft Visual Studio 12.0">
+          <DirectorySearch Id="VisualStudio2013Common7Search" Path="Common7">
+            <DirectorySearch Id ="VisualStudio2013IDESearch" Path="IDE">
+              <FileSearch Id="VisualStudio2013DevEnvSearch" Name="devenv.exe"/>
+            </DirectorySearch>
+          </DirectorySearch>
+        </DirectorySearch>
+      </DirectorySearch>
+    </Property>
+
+    <Property Id="VISUALSTUDIO2012DEVENVEXEEXISTS">
+      <DirectorySearch Id="ProgramFilesFolderSearch2012" Path="[ProgramFilesFolder]">
+        <DirectorySearch Id="VisualStudio2012Search" Path="Microsoft Visual Studio 11.0">
+          <DirectorySearch Id="VisualStudio2012Common7Search" Path="Common7">
+            <DirectorySearch Id ="VisualStudio2012IDESearch" Path="IDE">
+              <FileSearch Id="VisualStudio2012DevEnvSearch" Name="devenv.exe"/>
+            </DirectorySearch>
+          </DirectorySearch>
+        </DirectorySearch>
+      </DirectorySearch>
+    </Property>
+
+    <Property Id="VISUALSTUDIO2010DEVENVEXEEXISTS">
+      <DirectorySearch Id="ProgramFilesFolderSearch2010" Path="[ProgramFilesFolder]">
+        <DirectorySearch Id="VisualStudio2010Search" Path="Microsoft Visual Studio 10.0">
+          <DirectorySearch Id="VisualStudio2010Common7Search" Path="Common7">
+            <DirectorySearch Id ="VisualStudio2010IDESearch" Path="IDE">
+              <FileSearch Id="VisualStudio2010DevEnvSearch" Name="devenv.exe"/>
+            </DirectorySearch>
+          </DirectorySearch>
+        </DirectorySearch>
+      </DirectorySearch>
+    </Property>
+
+    <Property Id="VISUALSTUDIO2015CRMSVCUTILEXEEXISTS">
+      <DirectorySearch Id="ProgramFilesFolderCrmSvcUtilExeSearch2015" Path="[ProgramFilesFolder]">
+        <DirectorySearch Id="VisualStudio2015CrmSvcUtilExeSearch2015" Path="Microsoft Visual Studio 14.0">
+          <DirectorySearch Id="VisualStudio2015Common7CrmSvcUtilExeSearch2015" Path="Common7">
+            <DirectorySearch Id ="VisualStudio2015IDECrmSvcUtilExeSearch2015" Path="IDE">
+              <DirectorySearch Id="VisualStudio2015ExtensionsCrmSvcUtilExeSearch2015" Path="Extensions">
+                <DirectorySearch Id="VisualStudio2015MicrosoftCrmSvcUtilExeSearch2015" Path="Microsoft">
+                  <DirectorySearch Id="VisualStudio2015DynamicsCRM2016DeveloperToolsCrmSvcUtilExeSearch2015" Path="Dynamics CRM 2016 Developer Tools">
+                    <DirectorySearch Id="VisualStudio2015DynamicsCRM2016DeveloperTools1CrmSvcUtilExeSearch2015" Path="1.0">
+                      <FileSearch Id="CrmSvcUtilExe2015Search" Name="CrmSvcUtil.exe"/>
+                    </DirectorySearch>
+                  </DirectorySearch>
+                </DirectorySearch>
+              </DirectorySearch>
+            </DirectorySearch>
+          </DirectorySearch>
+        </DirectorySearch>
+      </DirectorySearch>
+    </Property>
+
+    <Property Id="VISUALSTUDIO2013CRMSVCUTILEXEEXISTS">
+      <DirectorySearch Id="ProgramFilesFolderCrmSvcUtilExeSearch2013" Path="[ProgramFilesFolder]">
+        <DirectorySearch Id="VisualStudio2013CrmSvcUtilExeSearch2013" Path="Microsoft Visual Studio 12.0">
+          <DirectorySearch Id="VisualStudio2013Common7CrmSvcUtilExeSearch2013" Path="Common7">
+            <DirectorySearch Id ="VisualStudio2013IDECrmSvcUtilExeSearch2013" Path="IDE">
+              <DirectorySearch Id="VisualStudio2013ExtensionsCrmSvcUtilExeSearch2013" Path="Extensions">
+                <DirectorySearch Id="VisualStudio2013MicrosoftCrmSvcUtilExeSearch2013" Path="Microsoft">
+                  <DirectorySearch Id="VisualStudio2013DynamicsCRM2011DeveloperToolsCrmSvcUtilExeSearch2013" Path="Dynamics CRM 2011 Developer Tools">
+                    <DirectorySearch Id="VisualStudio2013DynamicsCRM2011DeveloperTools1CrmSvcUtilExeSearch2013" Path="1.0">
+                      <FileSearch Id="CrmSvcUtilExe2013Search" Name="CrmSvcUtil.exe"/>
+                    </DirectorySearch>
+                  </DirectorySearch>
+                </DirectorySearch>
+              </DirectorySearch>
+            </DirectorySearch>
+          </DirectorySearch>
+        </DirectorySearch>
+      </DirectorySearch>
+    </Property>
+
+    <Property Id="VISUALSTUDIO2012CRMSVCUTILEXEEXISTS">
+      <DirectorySearch Id="ProgramFilesFolderCrmSvcUtilExeSearch2012" Path="[ProgramFilesFolder]">
+        <DirectorySearch Id="VisualStudio2012CrmSvcUtilExeSearch2012" Path="Microsoft Visual Studio 11.0">
+          <DirectorySearch Id="VisualStudio2012Common7CrmSvcUtilExeSearch2012" Path="Common7">
+            <DirectorySearch Id ="VisualStudio2012IDECrmSvcUtilExeSearch2012" Path="IDE">
+              <DirectorySearch Id="VisualStudio2012ExtensionsCrmSvcUtilExeSearch2012" Path="Extensions">
+                <DirectorySearch Id="VisualStudio2012MicrosoftCrmSvcUtilExeSearch2012" Path="Microsoft">
+                  <DirectorySearch Id="VisualStudio2012DynamicsCRM2011DeveloperToolsCrmSvcUtilExeSearch2012" Path="Dynamics CRM 2011 Developer Tools">
+                    <DirectorySearch Id="VisualStudio2012DynamicsCRM2011DeveloperTools1CrmSvcUtilExeSearch2012" Path="1.0">
+                      <FileSearch Id="CrmSvcUtilExe2012Search" Name="CrmSvcUtil.exe"/>
+                    </DirectorySearch>
+                  </DirectorySearch>
+                </DirectorySearch>
+              </DirectorySearch>
+            </DirectorySearch>
+          </DirectorySearch>
+        </DirectorySearch>
+      </DirectorySearch>
+    </Property>
+
+    <Property Id="VISUALSTUDIO2010CRMSVCUTILEXEEXISTS">
+      <DirectorySearch Id="ProgramFilesFolderCrmSvcUtilExeSearch2010" Path="[ProgramFilesFolder]">
+        <DirectorySearch Id="VisualStudio2010CrmSvcUtilExeSearch2010" Path="Microsoft Visual Studio 10.0">
+          <DirectorySearch Id="VisualStudio2010Common7CrmSvcUtilExeSearch2010" Path="Common7">
+            <DirectorySearch Id ="VisualStudio2010IDECrmSvcUtilExeSearch2010" Path="IDE">
+              <DirectorySearch Id="VisualStudio2010ExtensionsCrmSvcUtilExeSearch2010" Path="Extensions">
+                <DirectorySearch Id="VisualStudio2010MicrosoftCrmSvcUtilExeSearch2010" Path="Microsoft">
+                  <DirectorySearch Id="VisualStudio2010DynamicsCRM2011DeveloperToolsCrmSvcUtilExeSearch2010" Path="Dynamics CRM 2011 Developer Tools">
+                    <DirectorySearch Id="VisualStudio2010DynamicsCRM2011DeveloperTools1CrmSvcUtilExeSearch2010" Path="1.0">
+                      <FileSearch Id="CrmSvcUtilExe2010Search" Name="CrmSvcUtil.exe"/>
+                    </DirectorySearch>
+                  </DirectorySearch>
+                </DirectorySearch>
+              </DirectorySearch>
+            </DirectorySearch>
+          </DirectorySearch>
+        </DirectorySearch>
+      </DirectorySearch>
+    </Property>
+
+    <Feature Id="Complete" Title="Complete Installation" Level="1">
+      <ComponentGroupRef Id="VS2017DeveloperTools" />
+      <ComponentGroupRef Id="VS2015DeveloperTools" />
+      <ComponentGroupRef Id="VS2013DeveloperTools" />
+      <ComponentGroupRef Id="VS2012DeveloperTools" />
+      <ComponentGroupRef Id="VS2010DeveloperTools" />
+    </Feature>
+
+    <Directory Id="TARGETDIR" Name="SourceDir">
+      <Directory Id="ProgramFilesFolder">
+        <Directory Id="VisualStudio" Name="Microsoft Visual Studio">
+          <Directory Id="VisualStudio2017" Name="2017">
+            <Directory Id="Enterprise" Name="Enterprise">
+              <Directory Id="VisualStudio2017Common7" Name="Common7">
+                <Directory Id ="VisualStudio2017IDE" Name="IDE">
+                  <Directory Id="VisualStudio2017Extensions" Name="Extensions">
+                    <Directory Id="VisualStudio2017Microsoft" Name="Microsoft">
+                      <Directory Id="VisualStudio2017DynamicsCRM2016DeveloperTools" Name="Dynamics 365 Developer Tools">
+                        <Directory Id="VisualStudio2017DynamicsCRM2016DeveloperTools1" Name="1.0"/>
+                      </Directory>
+                    </Directory>
+                  </Directory>
+                </Directory>
+              </Directory>
+            </Directory>
+          </Directory>
+        </Directory>
+        <Directory Id="VisualStudio2015" Name="Microsoft Visual Studio 14.0">
+          <Directory Id="VisualStudio2015Common7" Name="Common7">
+            <Directory Id ="VisualStudio2015IDE" Name="IDE">
+              <Directory Id="VisualStudio2015PublicAssemblies" Name="PublicAssemblies"/>
+              <Directory Id="VisualStudio2015Extensions" Name="Extensions">
+                <Directory Id="VisualStudio2015Microsoft" Name="Microsoft">
+                  <Directory Id="VisualStudio2015DynamicsCRM2016DeveloperTools" Name="Dynamics CRM 2016 Developer Tools">
+                    <Directory Id="VisualStudio2015DynamicsCRM2016DeveloperTools1" Name="1.0"/>
+                  </Directory>
+                </Directory>
+              </Directory>
+            </Directory>
+          </Directory>
+        </Directory>
+        <Directory Id="VisualStudio2013" Name="Microsoft Visual Studio 12.0">
+          <Directory Id="VisualStudio2013Common7" Name="Common7">
+            <Directory Id ="VisualStudio2013IDE" Name="IDE">
+              <Directory Id="VisualStudio2013PublicAssemblies" Name="PublicAssemblies"/>
+              <Directory Id="VisualStudio2013Extensions" Name="Extensions">
+                <Directory Id="VisualStudio2013Microsoft" Name="Microsoft">
+                  <Directory Id="VisualStudio2013DynamicsCRM2011DeveloperTools" Name="Dynamics CRM 2011 Developer Tools">
+                    <Directory Id="VisualStudio2013DynamicsCRM2011DeveloperTools1" Name="1.0"/>
+                  </Directory>
+                </Directory>
+              </Directory>
+            </Directory>
+          </Directory>
+        </Directory>
+        <Directory Id="VisualStudio2012" Name="Microsoft Visual Studio 11.0">
+          <Directory Id="VisualStudio2012Common7" Name="Common7">
+            <Directory Id ="VisualStudio2012IDE" Name="IDE">
+              <Directory Id="VisualStudio2012PublicAssemblies" Name="PublicAssemblies"/>
+              <Directory Id="VisualStudio2012Extensions" Name="Extensions">
+                <Directory Id="VisualStudio2012Microsoft" Name="Microsoft">
+                  <Directory Id="VisualStudio2012DynamicsCRM2011DeveloperTools" Name="Dynamics CRM 2011 Developer Tools">
+                    <Directory Id="VisualStudio2012DynamicsCRM2011DeveloperTools1" Name="1.0"/>
+                  </Directory>
+                </Directory>
+              </Directory>
+            </Directory>
+          </Directory>
+        </Directory>
+        <Directory Id="VisualStudio2010" Name="Microsoft Visual Studio 10.0">
+          <Directory Id="VisualStudio2010Common7" Name="Common7">
+            <Directory Id ="VisualStudio2010IDE" Name="IDE">
+              <Directory Id="VisualStudio2010PublicAssemblies" Name="PublicAssemblies"/>
+              <Directory Id="VisualStudio2010Extensions" Name="Extensions">
+                <Directory Id="VisualStudio2010Microsoft" Name="Microsoft">
+                  <Directory Id="VisualStudio2010DynamicsCRM2011DeveloperTools" Name="Dynamics CRM 2011 Developer Tools">
+                    <Directory Id="VisualStudio2010DynamicsCRM2011DeveloperTools1" Name="1.0"/>
+                  </Directory>
+                </Directory>
+              </Directory>
+            </Directory>
+          </Directory>
+        </Directory>
+      </Directory>
+    </Directory>
+
+    <ComponentGroup Id="VS2017DeveloperTools" Directory="VisualStudio2017DynamicsCRM2016DeveloperTools1">
+      <Component Id="VS2017DeveloperToolsCrmSvcUtil">
+        <File Id="VS2017DeveloperToolsCrmSvcUtilFile" Source="$(var.CrmSvcUtil.TargetPath)" />
+        <Condition>VISUALSTUDIO2017CRMSVCUTILEXEEXISTS</Condition>
+      </Component>
+      <Component Id="VS2017CrmSvcUtilConfig">
+        <File Id="VS2017CrmSvcUtilConfigFile" Source="$(var.CrmSvcUtil.ProjectDir)CrmSvcUtil.exe.config" />
+        <Condition>VISUALSTUDIO2017CRMSVCUTILEXEEXISTS</Condition>
+      </Component>
+    </ComponentGroup>
+    <ComponentGroup Id="VS2015DeveloperTools" Directory="VisualStudio2015DynamicsCRM2016DeveloperTools1">
+      <Component Id="VS2015DeveloperToolsCrmSvcUtil">
+        <File Id="VS2015DeveloperToolsCrmSvcUtilFile" Source="$(var.CrmSvcUtil.TargetPath)" />
+        <Condition>VISUALSTUDIO2015CRMSVCUTILEXEEXISTS</Condition>
+      </Component>
+      <Component Id="VS2015CrmSvcUtilConfig">
+        <File Id="VS2015CrmSvcUtilConfigFile" Source="$(var.CrmSvcUtil.ProjectDir)CrmSvcUtil.exe.config" />
+        <Condition>VISUALSTUDIO2015CRMSVCUTILEXEEXISTS</Condition>
+      </Component>
+    </ComponentGroup>
+    <ComponentGroup Id="VS2013DeveloperTools" Directory="VisualStudio2013DynamicsCRM2011DeveloperTools1">
+      <Component Id="VS2013DeveloperToolsCrmSvcUtil">
+        <File Id="VS2013DeveloperToolsCrmSvcUtilFile" Source="$(var.CrmSvcUtil.TargetPath)" />
+        <Condition>VISUALSTUDIO2013CRMSVCUTILEXEEXISTS</Condition>
+      </Component>
+      <Component Id="VS2013CrmSvcUtilConfig">
+        <File Id="VS2013CrmSvcUtilConfigFile" Source="$(var.CrmSvcUtil.ProjectDir)CrmSvcUtil.exe.config" />
+        <Condition>VISUALSTUDIO2013CRMSVCUTILEXEEXISTS</Condition>
+      </Component>
+    </ComponentGroup>
+    <ComponentGroup Id="VS2012DeveloperTools" Directory="VisualStudio2012DynamicsCRM2011DeveloperTools1">
+      <Component Id="VS2012DeveloperToolsCrmSvcUtil">
+        <File Id="VS2012DeveloperToolsCrmSvcUtilFile" Source="$(var.CrmSvcUtil.TargetPath)" />
+        <Condition>VISUALSTUDIO2012CRMSVCUTILEXEEXISTS</Condition>
+      </Component>
+      <Component Id="VS2012CrmSvcUtilConfig">
+        <File Id="VS2012CrmSvcUtilConfigFile" Source="$(var.CrmSvcUtil.ProjectDir)CrmSvcUtil.exe.config" />
+        <Condition>VISUALSTUDIO2012CRMSVCUTILEXEEXISTS</Condition>
+      </Component>
+    </ComponentGroup>
+    <ComponentGroup Id="VS2010DeveloperTools" Directory="VisualStudio2010DynamicsCRM2011DeveloperTools1">
+      <Component Id="VS2010DeveloperToolsCrmSvcUtil">
+        <File Id="VS2010DeveloperToolsCrmSvcUtilFile" Source="$(var.CrmSvcUtil.TargetPath)" />
+        <Condition>VISUALSTUDIO2010CRMSVCUTILEXEEXISTS</Condition>
+      </Component>
+      <Component Id="VS2010CrmSvcUtilConfig">
+        <File Id="VS2010CrmSvcUtilConfigFile" Source="$(var.CrmSvcUtil.ProjectDir)CrmSvcUtil.exe.config" />
+        <Condition>VISUALSTUDIO2010CRMSVCUTILEXEEXISTS</Condition>
+      </Component>
+    </ComponentGroup>
+  </Product>
+</Wix>
