@@ -2,6 +2,10 @@
 
 Microsoft Dynamics CRM / Dynamics 365 / Dataverse Strong Type Entity Class Generator.
 
+# Download
+
+[https://marketplace.visualstudio.com/items?itemName=JohanKustner.DataverseClassGeneratorVS2022]()
+
 # Overview
 
 This tool provides a standalone option to generate strongly typed entity classes for the Dataverse, Dynamics 365 and Dynamics CRM.
