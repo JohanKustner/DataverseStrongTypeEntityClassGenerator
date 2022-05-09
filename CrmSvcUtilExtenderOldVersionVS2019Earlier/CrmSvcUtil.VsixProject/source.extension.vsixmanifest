@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <PackageManifest Version="2.0.0" xmlns="http://schemas.microsoft.com/developer/vsx-schema/2011" xmlns:d="http://schemas.microsoft.com/developer/vsx-schema-design/2011">
     <Metadata>
-        <Identity Id="CrmSvcUtil.VSIXProject.Johan Küstner.4b15840e-d515-4f33-882d-66fe57f67b22" Version="1.16" Language="en-GB" Publisher="Johan Küstner" />
+        <Identity Id="CrmSvcUtil.VSIXProject.Johan Küstner.4b15840e-d515-4f33-882d-66fe57f67b22" Version="1.16" Language="en-US" Publisher="Johan Küstner" />
         <DisplayName>Dataverse Strong Type Entity Class Generator</DisplayName>
         <Description xml:space="preserve">Generates strongly typed entity classes for Dynamics 365.</Description>
         <Icon>Resources\DynamicsLogo.ico</Icon>
